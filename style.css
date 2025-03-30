@@ -1,0 +1,133 @@
+/* Apply a modern, clean font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #ffb347, #ffcc33); /* Vibrant Hawaiian gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  animation: backgroundPulse 8s infinite; /* Gradient animation */
+}
+
+@keyframes backgroundPulse {
+  0%, 100% {
+    background: linear-gradient(135deg, #ffb347, #ffcc33);
+  }
+  50% {
+    background: linear-gradient(135deg, #fcd76b, #ffb347);
+  }
+}
+
+.container {
+  background: linear-gradient(145deg, #ffffff, #f3f3f3); /* Subtle gradient background */
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.container:hover {
+  transform: scale(1.05); /* Hover effect for the container */
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #4CAF50;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #333;
+  font-size: 1.1em;
+}
+
+label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+  text-align: left;
+  color: #333;
+}
+
+input[type="number"], select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+input[type="number"]:focus, select:focus {
+  border-color: #4CAF50;
+}
+
+.rating-group {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.rating-group input[type="radio"] {
+  display: none;
+}
+
+.rating-group label {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.rating-group input[type="radio"]:checked + label {
+  border-color: #4CAF50;
+  transform: scale(1.1); /* Slightly enlarge when selected */
+}
+
+.rating-group img {
+  width: 60px;
+  height: 60px;
+  display: block;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 1.4em;
+  color: #333;
+  background: linear-gradient(145deg, #fff, #e8e8e8); /* Subtle gradient for the result box */
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}

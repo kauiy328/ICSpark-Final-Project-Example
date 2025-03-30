@@ -1,33 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>My Website!</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aloha Tip Calculator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <h1>Welcome to my ICSpark Final Project Website!</h1>
-    
-    <p>
-        Before you begin working on your final project, take the time to try and think of what you want your final project to be! 
-        This website should be something you're proud of since you'll show it off to your friends and family at the end of the program!
-    </p>
-    
-    <p>
-        This website can be whatever you want, as long as you can make it! Make sure that your idea isn't too big and difficult, but not too small and short either! 
-        If you can't come up with a final website idea, here are a few ideas:
-    </p>
-    
-    <ul>
-        <li><strong>A Personality Quiz</strong> – Make a personality quiz out of your favorite game or show! Use JavaScript to ask questions and decide on what the quiz taker's character is!</li>
-        <li><strong>A Cookie Clicker Game</strong> – Clicking on a picture increases your score, and you can make upgrades to increase your score further! It doesn't have to be a cookie, either! It can be whatever you want, it's your website!</li>
-        <li><strong>Advanced Mad Libs Creator</strong> – If you liked the Mad Libs project from Week 5, you can build onto it by adding more and more scenarios!</li>
-        <li><strong>Wiki</strong> – If you have a favorite game or show you want to make your own wiki about, make it! You can have multiple pages on your website.</li>
-        <li><strong>Choose Your Own Adventure Game</strong> – The website gives the user a scenario and a choice, and each choice will lead them down a new path in a story of your creation!</li>
-        <li><strong>Flashcard Study Website</strong> – Want to test your friends, or help them study for something? Make a website that has interactable flashcards that give the answer when clicked!</li>
-        <li><strong>Trivia Game</strong> – If you have tricky trivia questions to ask about a TV series, a game, or even about yourself, make a trivia website for others to tackle!</li>
-        <li><strong>Whatever You Want!</strong> – It's your website! As long as you believe you can finish it in a couple of weeks, go for it! Your mentors will be there to help you if you ever get stuck!</li>
-    </ul>
+  <div class="container">
+    <h1>Aloha Tip Calculator</h1>
+    <p>Enter the bill amount, rate the service, cleanliness, and taste by clicking on the faces below, and choose the restaurant type.</p>
+    <form id="tipForm">
+      <!-- Bill Amount Input -->
+      <label for="amount">Bill Amount ($):</label>
+      <input type="number" id="amount" placeholder="Enter the total bill" step="0.01">
 
-    <script src="script.js"></script>
+      <!-- Restaurant Type Dropdown -->
+      <label for="restaurantType">Restaurant Type:</label>
+      <select id="restaurantType">
+        <option value="regular">Regular</option>
+        <option value="fancy">Fancy</option>
+      </select>
+
+      <!-- Service Rating -->
+      <label>Rate the Service:</label>
+      <div class="rating-group" id="serviceRating">
+        <input type="radio" id="service-frown" name="service" value="1">
+        <label for="service-frown">
+          <img src="https://cdn.pixabay.com/photo/2013/07/12/16/24/frowning-150840_960_720.png" alt="Frown Face" width=25% height=25%>
+        </label>
+        <input type="radio" id="service-mid" name="service" value="3">
+        <label for="service-mid">
+          <img src="https://cdn-icons-png.flaticon.com/512/9489/9489992.png" alt="Neutral Face" width=25% height=25%>
+        </label>
+        <input type="radio" id="service-smile" name="service" value="5">
+        <label for="service-smile">
+          <img src="https://th.bing.com/th/id/R.1c88c61f3481d30aec5d390fd0b51d1f?rik=KmquqDLyP%2fHPTw&pid=ImgRaw&r=0" alt="Smiley Face" width=32% height=32%>
+        </label>
+      </div>
+
+      <!-- Cleanliness Rating -->
+      <label>Rate the Cleanliness:</label>
+      <div class="rating-group" id="cleanlinessRating">
+        <input type="radio" id="cleanliness-frown" name="cleanliness" value="1">
+        <label for="cleanliness-frown">
+          <img src="https://cdn.pixabay.com/photo/2013/07/12/16/24/frowning-150840_960_720.png" alt="Frown Face" width=25% height=25%>
+        </label>
+        <input type="radio" id="cleanliness-mid" name="cleanliness" value="3">
+        <label for="cleanliness-mid">
+          <img src="https://cdn-icons-png.flaticon.com/512/9489/9489992.png" alt="Neutral Face" width=25% height=25%>
+        </label>
+        <input type="radio" id="cleanliness-smile" name="cleanliness" value="5">
+        <label for="cleanliness-smile">
+          <img src="https://th.bing.com/th/id/R.1c88c61f3481d30aec5d390fd0b51d1f?rik=KmquqDLyP%2fHPTw&pid=ImgRaw&r=0" alt="Smiley Face" width=32% height=32%>
+        </label>
+      </div>
+
+      <!-- Taste Rating -->
+      <label>Rate the Taste:</label>
+      <div class="rating-group" id="tasteRating">
+        <input type="radio" id="taste-frown" name="taste" value="1">
+        <label for="taste-frown">
+          <img src="https://cdn.pixabay.com/photo/2013/07/12/16/24/frowning-150840_960_720.png" alt="Frown Face" width=25% height=25%>
+        </label>
+        <input type="radio" id="taste-mid" name="taste" value="3">
+        <label for="taste-mid">
+          <img src="https://cdn-icons-png.flaticon.com/512/9489/9489992.png" alt="Neutral Face" width=25% height=25%>
+        </label>
+        <input type="radio" id="taste-smile" name="taste" value="5">
+        <label for="taste-smile">
+          <img src="https://th.bing.com/th/id/R.1c88c61f3481d30aec5d390fd0b51d1f?rik=KmquqDLyP%2fHPTw&pid=ImgRaw&r=0" alt="Smiley Face" width=32% height=32%>
+        </label>
+      </div>
+
+      <button type="button" onclick="calculateTip()">Calculate Tip</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+  <script src="script.js"></script>
 </body>
+</html>
