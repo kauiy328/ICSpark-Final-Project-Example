@@ -1,57 +1,42 @@
-/* Apply a modern, clean font */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap');
+/* Apply a simple font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #ffb347, #ffcc33); /* Vibrant Hawaiian gradient */
+  background-color: #f0f0f0; /* Simple light gray background */
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  animation: backgroundPulse 8s infinite; /* Gradient animation */
-}
-
-@keyframes backgroundPulse {
-  0%, 100% {
-    background: linear-gradient(135deg, #ffb347, #ffcc33);
-  }
-  50% {
-    background: linear-gradient(135deg, #fcd76b, #ffb347);
-  }
 }
 
 .container {
-  background: linear-gradient(145deg, #ffffff, #f3f3f3); /* Subtle gradient background */
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff; /* Basic white background for the container */
+  padding: 20px;
+  border-radius: 10px; /* Slightly rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
   width: 90%;
   max-width: 600px;
   text-align: center;
-  transition: transform 0.3s;
-}
-
-.container:hover {
-  transform: scale(1.05); /* Hover effect for the container */
 }
 
 h1 {
-  font-family: 'Pacifico', cursive;
-  color: #4CAF50;
-  font-size: 2.5em;
+  font-family: 'Roboto', sans-serif; /* Regular font */
+  color: #333; /* Dark gray text color */
+  font-size: 2em; /* Regular size header */
   margin-bottom: 10px;
 }
 
 p {
-  color: #333;
-  font-size: 1.1em;
+  color: #333; /* Dark gray text color */
+  font-size: 1em;
 }
 
 label {
   display: block;
-  margin: 15px 0 5px;
+  margin: 10px 0 5px;
   font-weight: bold;
   text-align: left;
   color: #333;
@@ -59,75 +44,43 @@ label {
 
 input[type="number"], select {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 5px;
   margin-bottom: 10px;
-  box-sizing: border-box;
   font-size: 1em;
-  transition: border-color 0.3s;
-}
-
-input[type="number"]:focus, select:focus {
-  border-color: #4CAF50;
 }
 
 .rating-group {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 15px;
-}
-
-.rating-group input[type="radio"] {
-  display: none;
-}
-
-.rating-group label {
-  cursor: pointer;
-  display: inline-block;
-  padding: 10px;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  transition: transform 0.3s, border-color 0.3s;
-}
-
-.rating-group input[type="radio"]:checked + label {
-  border-color: #4CAF50;
-  transform: scale(1.1); /* Slightly enlarge when selected */
+  margin-bottom: 10px;
 }
 
 .rating-group img {
-  width: 60px;
-  height: 60px;
-  display: block;
+  width: 50px; /* Set the width of the images */
+  height: 50px; /* Set the height of the images */
+  display: block; /* Ensure proper layout */
 }
 
 button {
-  background-color: #4CAF50;
-  color: #fff;
+  background-color: #4CAF50; /* Green button */
+  color: #fff; /* White text */
   border: none;
-  padding: 12px 20px;
-  font-size: 1.2em;
+  padding: 10px 15px;
+  font-size: 1em;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
   width: 100%;
-  margin-top: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-button:hover {
-  background-color: #45a049;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
 }
 
 .result {
-  margin-top: 20px;
-  font-size: 1.4em;
+  margin-top: 15px;
+  font-size: 1.2em;
   color: #333;
-  background: linear-gradient(145deg, #fff, #e8e8e8); /* Subtle gradient for the result box */
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f3f3f3; /* Light gray background */
+  padding: 10px;
+  border-radius: 8px;
 }
