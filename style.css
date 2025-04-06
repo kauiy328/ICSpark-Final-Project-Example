@@ -1,86 +1,96 @@
-/* Apply a simple font */
+/* Import Google Fonts for styling */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+/* Styles for the body element */
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f0f0f0; /* Simple light gray background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+  font-family: 'Roboto', sans-serif; /* Applies the "Roboto" font to all text in the page */
+  background-color: #f0f0f0; /* Sets a light gray background color */
+  display: flex; /* Enables flexible box layout */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  min-height: 100vh; /* Ensures the page takes up the full height of the browser window */
+  margin: 0; /* Removes default margins */
+  padding: 0; /* Removes default padding */
 }
 
+/* Styles for the main container (where the calculator resides) */
 .container {
-  background-color: #ffffff; /* Basic white background for the container */
-  padding: 20px;
-  border-radius: 10px; /* Slightly rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  width: 90%;
-  max-width: 600px;
-  text-align: center;
+  background-color: #ffffff; /* Sets the container background to white */
+  padding: 20px; /* Adds space inside the container */
+  border-radius: 10px; /* Rounds the corners slightly */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for a subtle 3D effect */
+  width: 90%; /* Sets the container width to 90% of the screen width */
+  max-width: 600px; /* Ensures the container doesn't get too wide */
+  text-align: center; /* Centers all text inside the container */
 }
 
+/* Styles for the main heading */
 h1 {
-  font-family: 'Roboto', sans-serif; /* Regular font */
-  color: #333; /* Dark gray text color */
-  font-size: 2em; /* Regular size header */
-  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif; /* Uses the "Roboto" font for the header */
+  color: #333; /* Sets the text color to dark gray */
+  font-size: 2em; /* Makes the header text larger */
+  margin-bottom: 10px; /* Adds space below the heading */
 }
 
+/* Styles for paragraph text */
 p {
-  color: #333; /* Dark gray text color */
-  font-size: 1em;
+  color: #333; /* Sets paragraph text color to dark gray */
+  font-size: 1em; /* Ensures readable text size */
 }
 
+/* Styles for form labels */
 label {
-  display: block;
-  margin: 10px 0 5px;
-  font-weight: bold;
-  text-align: left;
-  color: #333;
+  display: block; /* Makes the label appear on its own line */
+  margin: 10px 0 5px; /* Adds space around the label */
+  font-weight: bold; /* Makes the text bold */
+  text-align: left; /* Aligns the label text to the left */
+  color: #333; /* Sets label text color to dark gray */
 }
 
+/* Styles for input fields and dropdown menus */
 input[type="number"], select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-size: 1em;
+  width: 100%; /* Makes the input field span the full width of the container */
+  padding: 10px; /* Adds space inside the input field */
+  border: 1px solid #ccc; /* Adds a light gray border around the field */
+  border-radius: 5px; /* Rounds the corners slightly */
+  margin-bottom: 10px; /* Adds space below each input field */
+  font-size: 1em; /* Ensures readable text size */
 }
 
+/* Styles for the rating group (row of smiley face images) */
 .rating-group {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 10px;
+  display: flex; /* Displays items in a row */
+  justify-content: space-around; /* Adds equal spacing between the items */
+  margin-bottom: 10px; /* Adds space below the group */
 }
 
+/* Styles for individual images in the rating group */
 .rating-group img {
-  width: 50px; /* Set the width of the images */
-  height: 50px; /* Set the height of the images */
-  display: block; /* Ensure proper layout */
+  width: 50px; /* Sets the width of the images */
+  height: 50px; /* Sets the height of the images */
+  display: block; /* Ensures the images are laid out properly */
 }
 
+/* Styles for the submit button */
 button {
-  background-color: #4CAF50; /* Green button */
-  color: #fff; /* White text */
-  border: none;
-  padding: 10px 15px;
-  font-size: 1em;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 10px;
+  background-color: #4CAF50; /* Sets a green background color for the button */
+  color: #fff; /* Makes the text inside the button white */
+  border: none; /* Removes the default border */
+  padding: 10px 15px; /* Adds space inside the button */
+  font-size: 1em; /* Makes the text readable */
+  font-weight: bold; /* Makes the text bold */
+  border-radius: 5px; /* Rounds the corners slightly */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  width: 100%; /* Makes the button span the full width of the container */
+  margin-top: 10px; /* Adds space above the button */
 }
 
+/* Styles for the result box (where the calculated tip is displayed) */
 .result {
-  margin-top: 15px;
-  font-size: 1.2em;
-  color: #333;
-  background-color: #f3f3f3; /* Light gray background */
-  padding: 10px;
-  border-radius: 8px;
+  margin-top: 15px; /* Adds space above the result box */
+  font-size: 1.2em; /* Makes the result text slightly larger */
+  color: #333; /* Sets result text color to dark gray */
+  background-color: #f3f3f3; /* Sets a light gray background for the result box */
+  padding: 10px; /* Adds space inside the result box */
+  border-radius: 8px; /* Rounds the corners slightly */
 }
