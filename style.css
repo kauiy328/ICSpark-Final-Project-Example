@@ -1,106 +1,191 @@
-/* Import Google Fonts for styling */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* Import Google Fonts for the "Roboto" font style.
+   This loads the "Roboto" font with weights 400 (normal) and 700 (bold)
+   and instructs the browser to swap to the font as soon as it's available. */
+   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* Styles for the body element */
-/* Applies font, background color, layout properties, and removes default margins and padding */
-body {
-  font-family: 'Roboto', sans-serif; /* Applies the "Roboto" font to all text in the page */
-  background-color: #f0f0f0; /* Sets a light gray background color */
-  display: flex; /* Enables flexible box layout */
-  justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Centers content vertically */
-  min-height: 100vh; /* Ensures the page takes up the full height of the browser window */
-  margin: 0; /* Removes default margins */
-  padding: 0; /* Removes default padding */
-}
-
-/* Styles for the main container (where the calculator resides) */
-/* Applies background color, spacing, rounded corners, shadow, and size restrictions */
-.container {
-  background-color: #ffffff; /* Sets the container background to white */
-  padding: 20px; /* Adds space inside the container */
-  border-radius: 10px; /* Rounds the corners slightly */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for a subtle 3D effect */
-  width: 90%; /* Sets the container width to 90% of the screen width */
-  max-width: 600px; /* Ensures the container doesn't get too wide */
-  text-align: center; /* Centers all text inside the container */
-}
-
-/* Styles for the main heading */
-/* Sets font, text size, color, and spacing for the heading */
-h1 {
-  font-family: 'Roboto', sans-serif; /* Uses the "Roboto" font for the header */
-  color: #333; /* Sets the text color to dark gray */
-  font-size: 2em; /* Makes the header text larger */
-  margin-bottom: 10px; /* Adds space below the heading */
-}
-
-/* Styles for paragraph text */
-/* Ensures readable text size and color */
-p {
-  color: #333; /* Sets paragraph text color to dark gray */
-  font-size: 1em; /* Ensures readable text size */
-}
-
-/* Styles for form labels */
-/* Aligns labels and adds spacing and emphasis */
-label {
-  display: block; /* Makes the label appear on its own line */
-  margin: 10px 0 5px; /* Adds space around the label */
-  font-weight: bold; /* Makes the text bold */
-  text-align: left; /* Aligns the label text to the left */
-  color: #333; /* Sets label text color to dark gray */
-}
-
-/* Styles for input fields and dropdown menus */
-/* Adds spacing, borders, and rounds corners for a clean look */
-input[type="number"], select {
-  width: 100%; /* Makes the input field span the full width of the container */
-  padding: 10px; /* Adds space inside the input field */
-  border: 1px solid #ccc; /* Adds a light gray border around the field */
-  border-radius: 5px; /* Rounds the corners slightly */
-  margin-bottom: 10px; /* Adds space below each input field */
-  font-size: 1em; /* Ensures readable text size */
-}
-
-/* Styles for the rating group (row of smiley face images) */
-/* Arranges rating images horizontally with spacing */
-.rating-group {
-  display: flex; /* Displays items in a row */
-  justify-content: space-around; /* Adds equal spacing between the items */
-  margin-bottom: 10px; /* Adds space below the group */
-}
-
-/* Styles for individual images in the rating group */
-/* Adjusts size and layout for the rating images */
-.rating-group img {
-  width: 50px; /* Sets the width of the images */
-  height: 50px; /* Sets the height of the images */
-  display: block; /* Ensures the images are laid out properly */
-}
-
-/* Styles for the submit button */
-/* Defines size, color, spacing, and hover effect for the button */
-button {
-  background-color: #4CAF50; /* Sets a green background color for the button */
-  color: #fff; /* Makes the text inside the button white */
-  border: none; /* Removes the default border */
-  padding: 10px 15px; /* Adds space inside the button */
-  font-size: 1em; /* Makes the text readable */
-  font-weight: bold; /* Makes the text bold */
-  border-radius: 5px; /* Rounds the corners slightly */
-  cursor: pointer; /* Changes the cursor to a pointer on hover */
-  width: 100%; /* Makes the button span the full width of the container */
-  margin-top: 10px; /* Adds space above the button */
-}
-
-/* Styles for the result box (where the calculated tip is displayed) */
-/* Adds spacing, rounded corners, and background color for the result display */
-.result {
-  margin-top: 15px; /* Adds space above the result box */
-  font-size: 1.2em; /* Makes the result text slightly larger */
-  color: #333; /* Sets result text color to dark gray */
-  background-color: #f3f3f3; /* Sets a light gray background for the result box */
-  padding: 10px; /* Adds space inside the result box */
-  border-radius: 8px; /* Rounds the corners slightly */
-}
+   /* ---------- Global Styles (Body) ---------- */
+   body {
+     /* Set the default font to Roboto (with a fallback to sans-serif if needed) */
+     font-family: 'Roboto', sans-serif;
+     
+     /* Apply a vertical gradient background starting from a blue at the top 
+        to a cyan at the bottom */
+     background: linear-gradient(to bottom, rgb(2, 126, 228), rgb(36, 175, 245), rgb(0, 255, 255));
+     
+     /* Use Flexbox to center the content both horizontally and vertically */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     
+     /* Ensure the body takes up at least the full height of the viewport */
+     min-height: 100vh;
+     
+     /* Remove default margin and padding from the body */
+     margin: 0;
+     padding: 0;
+   }
+   
+   /* ---------- Container Style ---------- */
+   .container {
+     /* Use white background to make the content stand out against the gradient */
+     background-color: #ffffff;
+     
+     /* Add internal spacing around the content */
+     padding: 20px;
+     
+     /* Round the corners of the container */
+     border-radius: 10px;
+     
+     /* Apply a subtle shadow for a 3D effect */
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     
+     /* Make the container take up 90% of the screen width, but no more than 600px */
+     width: 90%;
+     max-width: 600px;
+     
+     /* Center the text inside the container */
+     text-align: center;
+   }
+   
+   /* ---------- Heading (h1) Style ---------- */
+   h1 {
+     /* Set the text color to a dark gray for readability */
+     color: #333;
+     
+     /* Increase the font size to make the heading prominent */
+     font-size: 2em;
+     
+     /* Add some space below the heading */
+     margin-bottom: 10px;
+   }
+   
+   /* ---------- Paragraph (p) Style ---------- */
+   p {
+     /* Use dark gray text for consistency */
+     color: #333;
+     
+     /* Standard font size for body text */
+     font-size: 1em;
+   }
+   
+   /* ---------- Label Style ---------- */
+   label {
+     /* Display labels as block-level elements so they take up the full width */
+     display: block;
+     
+     /* Add spacing above and below the label */
+     margin: 10px 0 5px;
+     
+     /* Make the label text bold */
+     font-weight: bold;
+     
+     /* Align label text to the left */
+     text-align: left;
+     
+     /* Set the text color to dark gray */
+     color: #333;
+   }
+   
+   /* ---------- Number Input Style ---------- */
+   input[type="number"] {
+     /* Make input fields take up the full width of the container */
+     width: 100%;
+     
+     /* Add internal padding for better readability */
+     padding: 10px;
+     
+     /* Outline the input field with a light gray border */
+     border: 1px solid #ccc;
+     
+     /* Round the corners of the input field slightly */
+     border-radius: 5px;
+     
+     /* Add a little space below each input field */
+     margin-bottom: 10px;
+     
+     /* Set the font size for input text */
+     font-size: 1em;
+   }
+   
+   /* ---------- Rating Group Style ---------- */
+   .rating-group {
+     /* Use flex layout to arrange radio button groups horizontally */
+     display: flex;
+     
+     /* Space items evenly within the group */
+     justify-content: space-around;
+     
+     /* Add margin at the bottom of the group */
+     margin-bottom: 10px;
+   }
+   
+   /* ---------- Rating Group Image Style ---------- */
+   .rating-group img {
+     /* Set fixed size for each rating image */
+     width: 50px;
+     height: 50px;
+     
+     /* Force images to behave as block elements, which helps with layout */
+     display: block;
+   }
+   
+   /* ---------- Button Style ---------- */
+   button {
+     /* Set a green background for the button */
+     background-color: #4CAF50;
+     
+     /* White text for contrast */
+     color: #fff;
+     
+     /* Remove any default border styling */
+     border: none;
+     
+     /* Add padding to make the button easier to click */
+     padding: 10px 15px;
+     
+     /* Set font size for the button's text */
+     font-size: 1em;
+     
+     /* Make the button text bold */
+     font-weight: bold;
+     
+     /* Round the edges of the button */
+     border-radius: 5px;
+     
+     /* Change the mouse pointer to indicate a clickable item */
+     cursor: pointer;
+     
+     /* Make the button stretch to fit the container's width */
+     width: 100%;
+     
+     /* Add margin above the button to separate it from the form fields */
+     margin-top: 10px;
+   }
+   
+   /* ---------- Button Hover Effect ---------- */
+   button:hover {
+     /* Darken the green when the user hovers over the button */
+     background-color: #45a049;
+   }
+   
+   /* ---------- Result Display Style ---------- */
+   .result {
+     /* Add margin above the result area for spacing */
+     margin-top: 15px;
+     
+     /* Increase font size slightly for visibility */
+     font-size: 1.2em;
+     
+     /* Use dark gray text for the result */
+     color: #333;
+     
+     /* Apply a light gray background behind the result text */
+     background-color: #f3f3f3;
+     
+     /* Add padding inside the result area for better spacing */
+     padding: 10px;
+     
+     /* Round the corners of the result display */
+     border-radius: 8px;
+   }
+   

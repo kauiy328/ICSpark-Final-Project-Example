@@ -1,130 +1,172 @@
 <!DOCTYPE html>
+<!-- This tells the browser that we are using HTML5 -->
 <html lang="en">
-<head>
-  <meta charset="UTF-8"> <!-- Specifies the character encoding for the document -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsiveness on mobile devices -->
-  <title>Tip Calculator</title> <!-- Title displayed in the browser tab -->
-  <link rel="stylesheet" href="style.css"> <!-- Links to the external CSS file for styling -->
-</head>
-<body>
-  <div class="container"> <!-- Main container to hold the entire tip calculator -->
-    <h1>Tip Calculator</h1> <!-- Main heading for the application -->
-    <p>Enter the bill amount, rate the service, cleanliness, taste, and value for money by clicking on the faces below, and choose the restaurant type.</p>
+  <!-- The root element of the HTML document with the language set to English -->
+  
+  <head>
+    <!-- The head section contains meta-data and links that are not directly visible on the web page -->
+    
+    <meta charset="UTF-8">
+    <!-- Sets the character encoding so that most characters from different languages are displayed correctly -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the webpage responsive by setting the viewport width to match the device's width -->
+    
+    <title>Tip Calculator</title>
+    <!-- Sets the title of the webpage which appears on the browser tab -->
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- Links the external CSS file (style.css) which contains styling instructions for this page -->
+  </head>
+  
+  <body>
+    <!-- The body section holds all the content that will be visible to the user on the webpage -->
+    
+    <div class="container">
+      <!-- A container used to wrap and style all of the content of our tip calculator -->
+      
+      <h1>Tip Calculator</h1>
+      <!-- A heading that gives a title to the page content -->
+      
+      <p>
+        Enter the bill amount and rate the service, cleanliness, taste, and value for money by clicking on the faces below.
+      </p>
+      <!-- A paragraph that explains to the user what they need to do -->
+      
+      <form id="tipForm">
+        <!-- The form element groups together all of the input fields for our tip calculator -->
+        
+        <!-- Bill Amount Input -->
+        <label for="amount">Bill Amount ($):</label>
+        <!-- A label that tells the user to enter the bill amount. The "for" attribute connects this label with the input with id "amount". -->
+        
+        <input 
+          type="number" 
+          id="amount" 
+          placeholder="Enter the total bill" 
+          step="0.01" 
+          min="0" 
+          required
+        >
+        <!-- An input field for numbers only:
+             • "type='number'" allows only numerical input.
+             • "placeholder" gives a hint on what to type.
+             • "step='0.01'" enables the user to enter decimals.
+             • "min='0'" ensures that no negative values can be entered.
+             • "required" ensures the user cannot submit the form without entering a value. -->
 
-    <form id="tipForm"> <!-- Form to capture all inputs and calculate tips -->
-      <!-- Bill Amount Input -->
-      <label for="amount">Bill Amount ($):</label> <!-- Label for the bill input -->
-      <input type="number" id="amount" placeholder="Enter the total bill" step="0.01" min="0" required> 
-      <!-- Input field to enter the bill amount. 'step="0.01"' allows decimal inputs -->
+        <!-- Service Rating Section -->
+        <label>Rate the Service:</label>
+        <!-- A label indicating that the following options are for rating the service -->
+        
+        <div class="rating-group" id="serviceRating">
+          <!-- A div element grouping the service rating radio buttons together for styling -->
+          
+          <input type="radio" id="service-frown" name="service" value="1">
+          <!-- A radio button input representing a poor (1) service rating.
+               The "name" attribute groups this input with others so only one can be selected. -->
+          
+          <label for="service-frown">
+            <!-- The label connected to the radio button above by the "for" attribute -->
+            <img src="Images/frowning-150840_1280.png" alt="Frown Face">
+            <!-- An image showing a frown to represent a poor service rating -->
+          </label>
+          
+          <input type="radio" id="service-mid" name="service" value="3">
+          <!-- A radio button for an average (3) service rating -->
+          <label for="service-mid">
+            <img src="Images/smiley-7578942_1280.png" alt="Neutral Face">
+            <!-- An image representing a neutral expression for average service -->
+          </label>
+          
+          <input type="radio" id="service-smile" name="service" value="5">
+          <!-- A radio button for an excellent (5) service rating -->
+          <label for="service-smile">
+            <img src="Images/smiley-559124_1280.png" alt="Smiley Face">
+            <!-- An image showing a smile to represent excellent service -->
+          </label>
+        </div>
 
-      <!-- Restaurant Type Dropdown -->
-      <label for="restaurantType">Restaurant Type:</label> <!-- Label for the dropdown -->
-      <select id="restaurantType"> <!-- Dropdown to select restaurant type -->
-        <option value="regular">Regular</option> <!-- Option: Regular restaurant -->
-        <option value="fancy">Fancy</option> <!-- Option: Fancy restaurant -->
-      </select>
+        <!-- Cleanliness Rating Section -->
+        <label>Rate the Cleanliness:</label>
+        <!-- A label for the cleanliness rating options -->
+        
+        <div class="rating-group" id="cleanlinessRating">
+          <!-- A container for cleanliness rating radio buttons -->
+          
+          <input type="radio" id="cleanliness-frown" name="cleanliness" value="1">
+          <label for="cleanliness-frown">
+            <img src="Images/frowning-150840_1280.png" alt="Frown Face">
+          </label>
+          
+          <input type="radio" id="cleanliness-mid" name="cleanliness" value="3">
+          <label for="cleanliness-mid">
+            <img src="Images/smiley-7578942_1280.png" alt="Neutral Face">
+          </label>
+          
+          <input type="radio" id="cleanliness-smile" name="cleanliness" value="5">
+          <label for="cleanliness-smile">
+            <img src="Images/smiley-559124_1280.png" alt="Smiley Face">
+          </label>
+        </div>
+        
+        <!-- Taste Rating Section -->
+        <label>Rate the Taste:</label>
+        <!-- A label for the taste rating options -->
+        
+        <div class="rating-group" id="tasteRating">
+          <!-- Grouping the taste rating inputs together -->
+          
+          <input type="radio" id="taste-frown" name="taste" value="1">
+          <label for="taste-frown">
+            <img src="Images/frowning-150840_1280.png" alt="Frown Face">
+          </label>
+          
+          <input type="radio" id="taste-mid" name="taste" value="3">
+          <label for="taste-mid">
+            <img src="Images/smiley-7578942_1280.png" alt="Neutral Face">
+          </label>
+          
+          <input type="radio" id="taste-smile" name="taste" value="5">
+          <label for="taste-smile">
+            <img src="Images/smiley-559124_1280.png" alt="Smiley Face">
+          </label>
+        </div>
+        
+        <!-- Value for Money Rating Section -->
+        <label>Rate the Value for Money:</label>
+        <!-- A label for rating the value for money -->
+        
+        <div class="rating-group" id="valueformoneyRating">
+          <!-- Container grouping the "value for money" rating options -->
+          
+          <input type="radio" id="valueformoney-frown" name="valueformoney" value="1">
+          <label for="valueformoney-frown">
+            <img src="Images/frowning-150840_1280.png" alt="Frown Face">
+          </label>
+          
+          <input type="radio" id="valueformoney-mid" name="valueformoney" value="3">
+          <label for="valueformoney-mid">
+            <img src="Images/smiley-7578942_1280.png" alt="Neutral Face">
+          </label>
+          
+          <input type="radio" id="valueformoney-smile" name="valueformoney" value="5">
+          <label for="valueformoney-smile">
+            <img src="Images/smiley-559124_1280.png" alt="Smiley Face">
+          </label>
+        </div>
 
-      <!-- Service Rating -->
-      <label>Rate the Service:</label> <!-- Label for service rating -->
-      <div class="rating-group" id="serviceRating"> <!-- Group for service rating buttons -->
-        <!-- Poor rating -->
-        <input type="radio" id="service-frown" name="service" value="1">
-        <label for="service-frown">
-          <img src="Images/frowning-150840_960_720.webp" alt="Frown Face"> <!-- Sad face for poor service -->
-        </label>
+        <!-- Calculate Tip Button -->
+        <button type="button" onclick="calculateTip()">Calculate Tip</button>
+        <!-- This button, when clicked, will run the calculateTip() function in our JavaScript file -->
+      </form>
 
-        <!-- Average rating -->
-        <input type="radio" id="service-mid" name="service" value="3">
-        <label for="service-mid">
-          <img src="Images/8265420.png" alt="Neutral Face"> <!-- Neutral face for average service -->
-        </label>
+      <!-- Result Display Area -->
+      <div class="result" id="result"></div>
+      <!-- This empty div is where the tip calculation results (like tip amount and total) will be displayed -->
+    </div>
 
-        <!-- Excellent rating -->
-        <input type="radio" id="service-smile" name="service" value="5">
-        <label for="service-smile">
-          <img src="Images/smiley_PNG27.png" alt="Smiley Face"> <!-- Happy face for excellent service -->
-        </label>
-      </div>
-
-      <!-- Cleanliness Rating -->
-      <label>Rate the Cleanliness:</label>
-      <div class="rating-group" id="cleanlinessRating">
-        <!-- Poor -->
-        <input type="radio" id="cleanliness-frown" name="cleanliness" value="1">
-        <label for="cleanliness-frown">
-          <img src="Images/frowning-150840_960_720.webp" alt="Frown Face">
-        </label>
-
-        <!-- Average -->
-        <input type="radio" id="cleanliness-mid" name="cleanliness" value="3">
-        <label for="cleanliness-mid">
-          <img src="Images/8265420.png" alt="Neutral Face">
-        </label>
-
-        <!-- Excellent -->
-        <input type="radio" id="cleanliness-smile" name="cleanliness" value="5">
-        <label for="cleanliness-smile">
-          <img src="Images/smiley_PNG27.png" alt="Smiley Face">
-        </label>
-      </div>
-
-      <!-- Taste Rating -->
-      <label>Rate the Taste:</label>
-      <div class="rating-group" id="tasteRating">
-        <!-- Poor -->
-        <input type="radio" id="taste-frown" name="taste" value="1">
-        <label for="taste-frown">
-          <img src="Images/frowning-150840_960_720.webp" alt="Frown Face">
-        </label>
-
-        <!-- Average -->
-        <input type="radio" id="taste-mid" name="taste" value="3">
-        <label for="taste-mid">
-          <img src="Images/8265420.png" alt="Neutral Face">
-        </label>
-
-        <!-- Excellent -->
-        <input type="radio" id="taste-smile" name="taste" value="5">
-        <label for="taste-smile">
-          <img src="Images/smiley_PNG27.png" alt="Smiley Face">
-        </label>
-      </div>
-
-      <!-- Value for Money Rating -->
-      <label>Rate the Value for Money:</label>
-      <div class="rating-group" id="valueformoneyRating">
-        <!-- Poor -->
-        <input type="radio" id="valueformoney-frown" name="valueformoney" value="1">
-        <label for="valueformoney-frown">
-          <img src="Images/frowning-150840_960_720.webp" alt="Frown Face">
-        </label>
-
-        <!-- Average -->
-        <input type="radio" id="valueformoney-mid" name="valueformoney" value="3">
-        <label for="valueformoney-mid">
-          <img src="Images/8265420.png" alt="Neutral Face">
-        </label>
-
-        <!-- Excellent -->
-        <input type="radio" id="valueformoney-smile" name="valueformoney" value="5">
-        <label for="valueformoney-smile">
-          <img src="Images/smiley_PNG27.png" alt="Smiley Face">
-        </label>
-      </div>
-
-      <!-- Calculate Tip Button -->
-      <button type="button" onclick="calculateTip()">Calculate Tip</button> 
-      <!-- Button to trigger the tip calculation function -->
-    </form>
-
-    <!-- Result Display -->
-    <div class="result" id="result"></div> 
-    <!-- Where the tip calculation results will be displayed -->
-  </div>
-
-  <body style="background-image: linear-gradient(to bottom, rgb(2, 126, 228), rgb(36, 175, 245), rgb(0, 255, 255));"></body>
-
-  <!-- JavaScript File -->
-  <script src="script.js"></script> <!-- Links to external JavaScript file containing tip calculation logic -->
-</body>
+    <script src="script.js"></script>
+    <!-- Links to an external JavaScript file (script.js) that contains the code to calculate the tip when the button is clicked -->
+  </body>
 </html>

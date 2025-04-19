@@ -1,77 +1,76 @@
-// Function to calculate the tip amount based on user inputs
 function calculateTip() {
-    // Get the bill amount from the input field with ID "amount"
+    // Get the bill amount entered by the user.
+    // document.getElementById('amount') finds the input field with id "amount".
+    // parseFloat converts the string value from the input into a floating-point number.
     var billAmount = parseFloat(document.getElementById('amount').value);
-  
-    // Check if the bill amount is valid (not empty, not NaN, and greater than zero)
+    
+    // Check if the bill amount is not a number (NaN) or less than or equal to 0.
+    // This validation ensures that the user enters a positive number.
     if (isNaN(billAmount) || billAmount <= 0) {
-        // Display an error message in the result section if the input is invalid
+        // If the bill amount is invalid, display an error message in the element with id "result".
         document.getElementById('result').innerHTML = "Please enter a valid bill amount.";
-        return; // Stop further execution of the function
+        // Exit the function early since further calculations should not proceed.
+        return;
     }
-  
-    // Get the selected restaurant type from the dropdown menu with ID "restaurantType"
-    var restaurantType = document.getElementById('restaurantType').value;
-  
-    // Nested function to fetch the rating value from a group of radio buttons
+
+    // Define a helper function to retrieve the selected rating from a group of radio buttons.
+    // The parameter "ratingGroup" is the name assigned to a set of radio buttons.
     function getRating(ratingGroup) {
-        // Find all radio button elements belonging to the specified group
+        // Get all elements (radio buttons) with the specified name.
         var ratings = document.getElementsByName(ratingGroup);
+        // Loop through each radio button in the group.
         for (var i = 0; i < ratings.length; i++) {
-            // Check if the current radio button is checked
+            // Check if this specific radio button is selected.
             if (ratings[i].checked) {
-                // Return the value of the selected radio button as a number
+                // Return the selected rating as an integer.
                 return parseInt(ratings[i].value);
             }
         }
-        // Return null if no button in the group is selected
+        // If no radio button in the group is selected, return null.
         return null;
     }
-  
-    // Fetch ratings for service, cleanliness, taste, and value for money
-    var serviceRating = getRating('service'); // User rating for service
-    var cleanlinessRating = getRating('cleanliness'); // User rating for cleanliness
-    var tasteRating = getRating('taste'); // User rating for taste of food
-    var valueRating = getRating('valueformoney'); // User rating for value for money
-  
-    // Validate that all ratings are selected before proceeding
+
+    // Retrieve ratings for each category using the getRating function.
+    // The parameters 'service', 'cleanliness', 'taste', and 'valueformoney'
+    // correspond to the "name" attributes of the radio button groups.
+    var serviceRating = getRating('service');         // Rating for service quality.
+    var cleanlinessRating = getRating('cleanliness');   // Rating for how clean the restaurant is.
+    var tasteRating = getRating('taste');               // Rating for the taste of the food.
+    var valueRating = getRating('valueformoney');         // Rating for the value for money.
+
+    // Check if the user has rated all the necessary categories.
+    // If any of the ratings is null, prompt the user to rate all categories.
     if (serviceRating === null || cleanlinessRating === null || tasteRating === null || valueRating === null) {
-        // Display an error message if any rating is missing
         document.getElementById('result').innerHTML = "Please rate all categories.";
-        return; // Stop further execution
+        return;
     }
-  
-    // Calculate the average rating from all four categories
+
+    // Calculate the average rating from the four categories.
     var averageRating = (serviceRating + cleanlinessRating + tasteRating + valueRating) / 4;
-  
-    // Declare a variable to store the calculated tip percentage
-    var tipPercentage;
-  
-    // Logic for "Regular" restaurant type
-    if (restaurantType === 'regular') {
-        // Scale the average rating to a percentage range of 0% (poor) to 20% (excellent)
-        if (averageRating === 1) {
-            tipPercentage = 0; // No tip for the lowest rating
-        } else {
-            tipPercentage = (averageRating / 5) * 20; // Scale ratings proportionally
-        }
-    } 
-    // Logic for "Fancy" restaurant type
-    else if (restaurantType === 'fancy') {
-        // Scale the average rating to a percentage range of 5% (poor) to 25% (excellent)
-        tipPercentage = 5 + ((averageRating - 1) / 4) * 20; // Fancy restaurants start with a baseline of 5%
+
+    // Calculate the tip percentage based on the average rating.
+    // For a regular restaurant, a perfect score (5) leads to a maximum tip of 20%.
+    // The tip percentage is calculated by scaling the average rating to the 20% maximum.
+    var tipPercentage = (averageRating / 5) * 20;
+    
+    // If the average rating is the lowest possible (1), set the tip percentage to 0%.
+    if (averageRating === 1) {
+        tipPercentage = 0;
     }
-  
-    // Calculate the tip amount in dollars
-    var tipAmount = (billAmount * tipPercentage / 100).toFixed(2); // Tip amount, rounded to two decimal places
-  
-    // Calculate the final total (bill amount + tip amount)
-    var totalAmount = (billAmount + parseFloat(tipAmount)).toFixed(2); // Final total bill, rounded to two decimal places
-  
-    // Display the calculated tip and total in the result section
+    
+    // Calculate the tip amount by multiplying the bill amount by the tip percentage.
+    // Divide the tipPercentage by 100 to convert the percentage to a decimal value.
+    // .toFixed(2) formats the result to two decimal places.
+    var tipAmount = (billAmount * tipPercentage / 100).toFixed(2);
+    
+    // Calculate the total amount by adding the tip amount to the original bill amount.
+    // Number(tipAmount) ensures the tipAmount is treated as a number.
+    var totalAmount = (billAmount + Number(tipAmount)).toFixed(2);
+
+    // Display the calculated tip percentage, tip amount, and total amount on the webpage.
+    // The innerHTML of the element with id "result" is updated with these values.
     document.getElementById('result').innerHTML =
-        "Recommended Tip: " + tipPercentage.toFixed(1) + "%<br>" + // Display the tip percentage
-        "Tip Amount: $" + tipAmount + "<br>" + // Display the tip amount in dollars
-        "Final Total: $" + totalAmount; // Display the final total bill (including tip)
-  }
-  
+        "Recommended Tip: " + tipPercentage.toFixed(1) + "%<br>" +
+        "Tip Amount: $" + tipAmount + "<br>" +
+        "Final Total: $" + totalAmount;
+}
